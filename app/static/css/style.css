@@ -1,0 +1,373 @@
+:root {
+    --primary-color: #0072c6;
+    --secondary-color: #00a4e4;
+    --background-color: #ffffff;
+    --text-color: #333;
+    --gradient-start: #0072c6;
+    --gradient-middle: #00a4e4;
+    --gradient-end: #00a4e4;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #0072c6 !important;
+    padding: 0.75rem 1rem;
+    border: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 35px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+}
+
+.navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    opacity: 0.9;
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 90px;
+    padding-bottom: 2rem;
+}
+
+/* Page Header */
+.page-header {
+    background-color: #f8f9fa;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Table Responsive */
+.table-responsive {
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    white-space: nowrap;
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+    min-width: 100px;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    height: 38px;
+    white-space: nowrap;
+}
+
+.btn i {
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 30px;
+    }
+
+    .page-header {
+        padding: 1rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        height: 34px;
+    }
+
+    .table-responsive {
+        margin: 0 -15px;
+        border-radius: 0;
+    }
+
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar-brand img {
+        height: 25px;
+    }
+
+    .page-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.85rem;
+        height: 32px;
+    }
+
+    .table th, .table td {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Modal Responsiveness */
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        padding: 1rem;
+    }
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    padding: 1.25rem;
+}
+
+/* Tables */
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0,164,228,0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Utilities */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Checkbox styling */
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Estilo para links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+#deleteSelectedBtn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#deleteSelectedBtn:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed;
+}
+
+.checkbox-column {
+    width: 40px;
+    text-align: center;
+}
+
+.actions-column {
+    width: 100px;
+    text-align: center;
+}
+
+.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+} 

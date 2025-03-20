@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Importar Usuários via CSV{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="page-header">Importar Usuários via CSV</h1>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error | replace('\n', '<br>') | safe }}
+    </div>
+    {% endif %}
+
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+        {{ success }}
+    </div>
+    {% endif %}
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Instruções</h5>
+            <p class="card-text">
+                O arquivo CSV deve conter as seguintes colunas:
+            </p>
+            <ul>
+                <li><strong>nome</strong> - Nome completo do usuário</li>
+                <li><strong>email</strong> - Email único do usuário</li>
+                <li><strong>cpf</strong> - CPF único do usuário</li>
+                <li><strong>data_nascimento</strong> - Data de nascimento nos formatos:
+                    <ul>
+                        <li>DD/MM/AAAA (exemplo: 14/05/1990)</li>
+                        <li>AAAA-MM-DD (exemplo: 1990-05-14)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="card-text">
+                <small class="text-muted">
+                    Certifique-se de que o arquivo está no formato UTF-8 e que os dados estão corretos antes de importar.
+                </small>
+            </p>
+        </div>
+    </div>
+
+    <form method="POST" action="/importar-csv" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="arquivo" class="form-label">Selecione o arquivo CSV</label>
+            <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
+            <div class="invalid-feedback">
+                Por favor, selecione um arquivo CSV.
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-upload"></i> Importar
+            </button>
+            <a href="/" class="btn btn-secondary">Voltar</a>
+        </div>
+    </form>
+
+    {% if success %}
+    <div class="mt-4">
+        <a href="/" class="btn btn-primary">Ver Lista de Usuários</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

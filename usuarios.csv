@@ -1,0 +1,11 @@
+nome,email,cpf,data_nascimento
+Ana Silva,ana.silva@example.com,123.456.789-00,1990-05-14
+Bruno Souza,bruno.souza@example.com,987.654.321-00,1985-08-23
+Carla Pereira,carla.pereira@example.com,456.789.123-00,1992-11-30
+Daniel Oliveira,daniel.oliveira@example.com,321.654.987-00,1988-03-15
+Elisa Costa,elisa.costa@example.com,789.123.456-00,1995-07-22
+Felipe Lima,felipe.lima@example.com,654.321.987-00,1991-12-10
+Gabriela Rocha,gabriela.rocha@example.com,987.123.654-00,1987-01-05
+Henrique Alves,henrique.alves@example.com,123.789.456-00,1993-09-18
+Isabela Martins,isabela.martins@example.com,456.123.789-00,1990-04-27
+João Fernandes,joao.fernandes@example.com,789.456.123-00,1986-06-12 

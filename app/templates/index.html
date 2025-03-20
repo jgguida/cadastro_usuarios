@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Usuários{% endblock %}
+
+{% block page_title %}Lista de Usuários{% endblock %}
+
+{% block header_actions %}
+    <button id="deleteSelectedBtn" class="btn btn-danger" onclick="deleteSelected()" disabled>
+        <i class="fas fa-trash-alt"></i> Excluir Selecionados
+    </button>
+    <a href="/cadastro" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Novo Usuário
+    </a>
+    <a href="/importar-csv" class="btn btn-success">
+        <i class="fas fa-file-import"></i> Importar CSV
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="checkbox-column">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                            </div>
+                        </th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Data de Nascimento</th>
+                        <th class="actions-column">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td class="checkbox-column">
+                            <div class="form-check">
+                                <input class="form-check-input user-checkbox" type="checkbox" value="{{ user.id }}" onchange="updateDeleteButton()">
+                            </div>
+                        </td>
+                        <td>{{ user.nome }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.cpf }}</td>
+                        <td>{{ user.data_nascimento.strftime('%d/%m/%Y') }}</td>
+                        <td class="actions-column">
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-primary" data-user-id="{{ user.id }}" onclick="editUser(this.getAttribute('data-user-id'))">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" data-user-id="{{ user.id }}" onclick="deleteUser(this.getAttribute('data-user-id'))">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Edição -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="editUserId">
+                    <div class="mb-3">
+                        <label for="editNome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="editNome" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um nome.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="editEmail" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um email válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editCpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="editCpf" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um CPF válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDataNascimento" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" id="editDataNascimento" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira uma data de nascimento.
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="saveEdit()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
