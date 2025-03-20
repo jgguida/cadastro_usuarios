@@ -77,7 +77,7 @@ app/
 
 1. Clone o repositório:
 ```bash
-git clone [[URL_DO_REPOSITORIO]](https://github.com/jgguida/cadastro_usuarios.git)
+git clone https://github.com/jgguida/cadastro_usuarios.git
 cd cadastro_usuarios
 ```
 
